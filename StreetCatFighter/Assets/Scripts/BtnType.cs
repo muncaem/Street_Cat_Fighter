@@ -12,7 +12,7 @@ public class BtnType : MonoBehaviour
         switch (currentType)
         {
             case BTNType.Start:
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Main");
                 break;
 
             case BTNType.Closet:

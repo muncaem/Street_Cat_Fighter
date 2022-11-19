@@ -9,7 +9,7 @@ public class SceneManagement : MonoBehaviour
 
     public void SceneTransition()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Main");
         //start 버튼 누르면 메뉴에서 게임으로 이동}
     }
 }
