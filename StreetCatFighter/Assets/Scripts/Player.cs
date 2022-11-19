@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -33,6 +34,8 @@ public class Player : MonoBehaviour
 
     List<Image> invenbaseImg = new List<Image>();
     int invenCount, invennum;
+
+    public GameObject lef; //전단지
 
     void Start() 
     {
@@ -125,6 +128,11 @@ public class Player : MonoBehaviour
             exp = 0f;
             levelNum.text = level.ToString();
         }
+
+        if(level >= 10) //10레벨
+        {
+            lef.SetActive(true); //전단지 활성화
+        }
     }
 
     // Hp 증가 함수
@@ -158,6 +166,11 @@ public class Player : MonoBehaviour
             speed = 10f; // 이동속도 up
             power = 10f; // 공격력 up
             Invoke("EndBuff", 10f);
+        }
+
+        if (collision.name.Contains("leaflet"))
+        {
+            SceneManager.LoadScene("BossBattle");
         }
     }
 
