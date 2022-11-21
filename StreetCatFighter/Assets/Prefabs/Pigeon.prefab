@@ -262,8 +262,8 @@ GameObject:
   - component: {fileID: 7426149613703535871}
   - component: {fileID: 7426149613703535870}
   - component: {fileID: 7426149613703535868}
-  - component: {fileID: 7426149613703535869}
   - component: {fileID: 7426149613703535858}
+  - component: {fileID: 447584294923760084}
   m_Layer: 3
   m_Name: Pigeon
   m_TagString: Enemy
@@ -358,32 +358,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &7426149613703535869
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7426149613703535865}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &7426149613703535858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,3 +375,19 @@ MonoBehaviour:
   attackAvailable_e: 0
   hpBarSprite: {fileID: 7426149611889029400}
   hpBarBgSprite: {fileID: 7426149612579204629}
+--- !u!70 &447584294923760084
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426149613703535865}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.6236642, y: 0.7922126}
+  m_Size: {x: 8.9904585, y: 7.921088}
+  m_Direction: 1
