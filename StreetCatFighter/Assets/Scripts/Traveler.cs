@@ -17,21 +17,21 @@ public class Traveler : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(true);
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(true);
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(false);
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(false);
+    //    }
+    //}
 
     public GameObject map, mapicon, punch, txtcanvas;
     public Text getText;

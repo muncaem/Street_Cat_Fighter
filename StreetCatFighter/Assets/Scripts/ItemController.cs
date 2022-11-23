@@ -8,8 +8,10 @@ public class ItemController : MonoBehaviour
     string clickObj_name;
     bool power = false;
     bool speed = false;
+    //bool nodam = false;
     int p_count = 0;
     int s_count = 0;
+    int n_count = 0;
 
     private void Start()
     {
@@ -32,12 +34,15 @@ public class ItemController : MonoBehaviour
 
         Potion();
         print(clickObj_name);
+        clickObj.GetComponent<Image>().sprite = null;
+        clickObj.SetActive(false);
     }
 
     //이미지 스프라이트 이름 다 변경.
     public void Potion()
     {
         Player playerProperty = GameObject.Find("Player").GetComponent<Player>();
+        //Enemy enemyfield = GameObject.Find("Pigeon").GetComponent<Enemy>();
 
         if (clickObj_name == "Strength_Potion")
         {
@@ -53,7 +58,7 @@ public class ItemController : MonoBehaviour
         }
         if (clickObj_name == "Clear_Potion")
         {
-            //적 인식 불가하도록 트리거를 없애버릴까..?
+            //어떻게 해야할쥐......//플레이어 밖에 콜리더로 투명 효과
         }
         if (clickObj_name == "Power_Potion")
         {
@@ -81,11 +86,18 @@ public class ItemController : MonoBehaviour
         }
         if (clickObj_name == "NoDamage_Potion")
         {
-            //10초 무적(데미지 받지 않음)
+            //nodam = true;
+            //enemyfield.attackAvailable_e = false; //enemy가 공격불가 -> 플레이어 밖에 콜리더로 방패
+            n_count++;
+
+            if(n_count > 1)
+            {
+                //방패 제거
+            }
         }
         if (clickObj_name == "Magnet_Potion")
         {
-            //근방 자석 끌어당김
+            //근방 코인 끌어당김, 코인과 플레이어 거리 계산, 몇 안으로 들어오면 코인 증가, 코인 삭제
         }
     }
 }

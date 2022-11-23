@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     Transform playerPos;
 
-    float speed = 2f;
+    public float speed = 2f;
 
     public float enemyHp = 20f; // Ã¼·Â
 

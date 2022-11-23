@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
     public int coin = 0; // 코인
     public Text coinNum; // 코인 개수 Text
 
-    GameObject StoreCV;
-
     public GameObject cantbuywin, canbuy, nomorewin;
 
     List<Image> invenbaseImg = new List<Image>();
@@ -46,7 +44,6 @@ public class Player : MonoBehaviour
         {
             invenbaseImg.Add(GameObject.Find("Slot" + i).transform.GetChild(0).gameObject.GetComponent<Image>());
         }
-        //invenbaseImg = GameObject.Find("Slot1").transform.GetChild(0).gameObject.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -114,10 +111,50 @@ public class Player : MonoBehaviour
                     }
                 }
 
+                if(touchedObj.name == "machine")
+                {
+                    GameObject.Find("자판기팝업").transform.GetChild(0).gameObject.SetActive(true);
+                    bool pause = true;
+                    if (pause == true)
+                    {
+                        Time.timeScale = 0;
+                    }
+                }
+
+                if(touchedObj.name == "StoreTile")
+                {
+                    GameObject.Find("---Store---").transform.GetChild(0).gameObject.SetActive(true);
+                    bool pause = true;
+                    if (pause == true)
+                    {
+                        Time.timeScale = 0;
+                    }
+                }
+
+                if(touchedObj.name == "Traveler")
+                {
+                    GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(true);
+                    bool pause = true;
+                    if(pause == true)
+                    {
+                        Time.timeScale = 0;
+                    }
+                }
+
+                if(touchedObj.name == "leaflet")
+                {
+                    SceneManager.LoadScene("BossBattle");
+                }
+
                 else
                     return;
             }
         }
+    }
+
+    public void normalTime()
+    {
+        Time.timeScale = 1;
     }
 
     void LevelUp() 
@@ -168,28 +205,28 @@ public class Player : MonoBehaviour
             Invoke("EndBuff", 10f);
         }
 
-        if (collision.name.Contains("leaflet"))
-        {
-            SceneManager.LoadScene("BossBattle");
-        }
+        //if (collision.name.Contains("leaflet"))
+        //{
+        //    SceneManager.LoadScene("BossBattle");
+        //}
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag == "Store")
-        {
-            //Debug.Log("트리거 성공");
-            StoreCV = GameObject.Find("---Store---").transform.GetChild(0).gameObject;
-            StoreCV.SetActive(true);
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Store")
-        {
-            StoreCV.SetActive(false);
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Store")
+    //    {
+    //        //Debug.Log("트리거 성공");
+    //        StoreCV = GameObject.Find("---Store---").transform.GetChild(0).gameObject;
+    //        StoreCV.SetActive(true);
+    //    }
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Store")
+    //    {
+    //        StoreCV.SetActive(false);
+    //    }
+    //}
 
     void EndBuff()
     {
