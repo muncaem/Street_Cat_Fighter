@@ -11,6 +11,7 @@ TagManager:
   - Item4
   - Enemy
   - Slot
+  - magnet
   layers:
   - Default
   - TransparentFX

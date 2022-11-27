@@ -8,20 +8,65 @@ public class ItemController : MonoBehaviour
     string clickObj_name;
     bool power = false;
     bool speed = false;
-    //bool nodam = false;
-    int p_count = 0;
-    int s_count = 0;
-    int n_count = 0;
+    bool nodamg = false;
+    bool mag = false;
+    bool clear = false;
+    //int p_count = 0;
+    //int s_count = 0;
+    //int n_count = 0;
+    //int m_count = 0;
+    //int c_count = 0;
+
+    public GameObject magnet;
+    public GameObject Effect;
+
+    Player playerProperty;
 
     private void Start()
     {
-        if(power == true)
+        Effect = GameObject.Find("Effect");
+        playerProperty = GameObject.Find("Player").GetComponent<Player>();
+    }
+
+    private void Update()
+    {
+        if (power == true)
         {
-            InvokeRepeating("Potion", 0, 10); //바로 실행 10초마다 반복 -> 10초간 power 세짐.
+            playerProperty.power = 10; //2배
+            Effect.transform.GetChild(0).gameObject.SetActive(true);
+
+            StartCoroutine(PowerPotion()); //10초간 power 세짐.
         }
-        if(speed == true)
+        if (speed == true)
         {
-            InvokeRepeating("Potion", 0, 10);
+            playerProperty.speed = 6; //2배
+
+            StartCoroutine(SpeedPotion());
+        }
+        if (nodamg == true)
+        {
+            Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+            enemyProperty.enemyAttackPower = 0; //적 공격력 -> 0
+
+            StartCoroutine(NoDamgPotion());
+        }
+        if (mag == true)
+        {
+            magnet.SetActive(true);
+
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+            float x = screenPos.x;
+
+            magnet.transform.position = new Vector3(x, screenPos.y + 90, 0);
+
+            StartCoroutine(MagnetPotion());
+        }
+        if (clear == true)
+        {
+            Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+            enemyProperty.speed = 0; //적 속도 -> 0
+
+            StartCoroutine(ClearPotion());
         }
     }
 
@@ -41,9 +86,6 @@ public class ItemController : MonoBehaviour
     //이미지 스프라이트 이름 다 변경.
     public void Potion()
     {
-        Player playerProperty = GameObject.Find("Player").GetComponent<Player>();
-        //Enemy enemyfield = GameObject.Find("Pigeon").GetComponent<Enemy>();
-
         if (clickObj_name == "Strength_Potion")
         {
             //체력 30만큼 plus
@@ -58,46 +100,98 @@ public class ItemController : MonoBehaviour
         }
         if (clickObj_name == "Clear_Potion")
         {
-            //어떻게 해야할쥐......//플레이어 밖에 콜리더로 투명 효과
+            //Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+            clear = true;
+            //enemyProperty.speed = 0; //적 속도 -> 0
+            //c_count++;
+
+            //if (c_count > 1)
+            //{
+            //    CancelInvoke("Potion");
+            //    enemyProperty.speed = 2;
+            //}
         }
         if (clickObj_name == "Power_Potion")
         {
             power = true;
-            playerProperty.power = 10; //2배
-            p_count++;
-
-            if(p_count > 1)
-            {
-                CancelInvoke("potion");
-                playerProperty.power = 5;
-            }
         }
         if (clickObj_name == "Speed_Potion")
         {
             speed = true;
-            playerProperty.speed = 6; //2배
-            s_count++;
+            //playerProperty.speed = 6; //2배
+            //s_count++;
 
-            if(s_count > 1)
-            {
-                CancelInvoke("potion");
-                playerProperty.speed = 3;
-            }
+            //if(s_count > 1)
+            //{
+            //    CancelInvoke("Potion");
+            //    playerProperty.speed = 3;
+            //}
         }
         if (clickObj_name == "NoDamage_Potion")
         {
-            //nodam = true;
-            //enemyfield.attackAvailable_e = false; //enemy가 공격불가 -> 플레이어 밖에 콜리더로 방패
-            n_count++;
+            //Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+            nodamg = true;
+            //enemyProperty.enemyAttackPower = 0; //적 공격력 -> 0
+            //n_count++;
 
-            if(n_count > 1)
-            {
-                //방패 제거
-            }
+            //if(n_count > 1)
+            //{
+            //    CancelInvoke("Potion");
+            //    enemyProperty.enemyAttackPower = 10;
+            //}
         }
         if (clickObj_name == "Magnet_Potion")
         {
-            //근방 코인 끌어당김, 코인과 플레이어 거리 계산, 몇 안으로 들어오면 코인 증가, 코인 삭제
+            mag = true;
+            //magnet.SetActive(true);
+            //magnet.transform.position = new Vector3(playerProperty.transform.position.x, playerProperty.transform.position.y, 0);
+
+            //Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+            //float x = screenPos.x;
+
+            //magnet.transform.position = new Vector3(x, screenPos.y + 90, 0);
+
+            //m_count++;
+
+            //if (m_count > 1)
+            //{
+            //    CancelInvoke("Potion");
+            //    magnet.SetActive(false);
+            //}
         }
+    }
+
+    IEnumerator PowerPotion()
+    {
+        //Debug.Log("test");
+        yield return new WaitForSeconds(10.0f);
+        power = false;
+        playerProperty.power = 5;
+        Effect.transform.GetChild(0).gameObject.SetActive(false);
+    }
+    IEnumerator ClearPotion()
+    {
+        yield return new WaitForSeconds(10.0f);
+        clear = false;
+        Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+        enemyProperty.speed = 2;
+    }
+    IEnumerator SpeedPotion()
+    {
+        yield return new WaitForSeconds(10.0f);
+        speed = false;
+        playerProperty.speed = 3;
+    }
+    IEnumerator NoDamgPotion()
+    {
+        yield return new WaitForSeconds(10.0f);
+        nodamg = false;
+        Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
+        enemyProperty.enemyAttackPower = 10;
+    }
+    IEnumerator MagnetPotion()
+    {
+        yield return new WaitForSeconds(10.0f);
+        mag = false;
     }
 }

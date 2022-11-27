@@ -37,6 +37,12 @@ public class Traveler : MonoBehaviour
     public Text getText;
     public void DrawCatFoot()
     {
+        GameObject.Find("³É¹ßÁÂ").gameObject.SetActive(false);
+        GameObject.Find("³É¹ß¿ì").gameObject.SetActive(false);
+
+        GameObject.Find("OpenCatHand").transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.Find("OpenCatHand").transform.GetChild(1).gameObject.SetActive(true);
+
         int rd = Random.Range(0, 2);
         print("·£´ý°ª" + rd);
 

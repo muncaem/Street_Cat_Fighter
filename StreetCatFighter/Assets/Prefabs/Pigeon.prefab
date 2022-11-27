@@ -370,11 +370,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a925c3ac972ea1843bdfb36b822b4849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   enemyHp: 20
   attackAvailable_p: 0
   attackAvailable_e: 0
   hpBarSprite: {fileID: 7426149611889029400}
   hpBarBgSprite: {fileID: 7426149612579204629}
+  enemyAttackPower: 10
 --- !u!70 &447584294923760084
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

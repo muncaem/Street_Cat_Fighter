@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public Image hpBarSprite; // 체력 게이지 Sprite
     public Image hpBarBgSprite; // 체력 게이지 배경 Sprite
 
+    public float enemyAttackPower = 10;
+
     Coroutine st;
 
     void Start()
@@ -92,7 +94,7 @@ public class Enemy : MonoBehaviour
         if (attackAvailable_e == true)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<Player>().playerHp -= 10f;
+            player.GetComponent<Player>().playerHp -= enemyAttackPower;
 
             Debug.Log("Player가 공격당하고 있습니다");
 

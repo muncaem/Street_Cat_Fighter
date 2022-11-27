@@ -227,6 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a1056177f89dba4ea78a97dbc088f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnet: {fileID: 9160677435032025529, guid: ac499a4e1dc611f49b62b0795aba4cbe, type: 3}
+  Effect: {fileID: 0}
 --- !u!4 &31790225
 Transform:
   m_ObjectHideFlags: 0
@@ -79632,7 +79634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6444e8caabce7fd429acd3ee1aa6998b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gaintext: {fileID: 0}
 --- !u!1 &1830963473
 GameObject:
   m_ObjectHideFlags: 0
