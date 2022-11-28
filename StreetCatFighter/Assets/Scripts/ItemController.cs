@@ -46,7 +46,7 @@ public class ItemController : MonoBehaviour
         if (nodamg == true)
         {
             Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
-            enemyProperty.enemyAttackPower = 0; //적 공격력 -> 0
+            enemyProperty.enemyPower = 0; //적 공격력 -> 0
 
             StartCoroutine(NoDamgPotion());
         }
@@ -187,7 +187,7 @@ public class ItemController : MonoBehaviour
         yield return new WaitForSeconds(10.0f);
         nodamg = false;
         Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
-        enemyProperty.enemyAttackPower = 10;
+        enemyProperty.enemyPower = 10;
     }
     IEnumerator MagnetPotion()
     {
