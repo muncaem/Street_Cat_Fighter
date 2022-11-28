@@ -6,6 +6,7 @@ public class ItemSpawnManager : MonoBehaviour
 {
     public GameObject fish;
     public GameObject coin;
+    public GameObject box;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,12 @@ public class ItemSpawnManager : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(Random.Range(-3, 3), Random.Range(-4, 4), 0);
             Instantiate(coin, spawnPos, transform.rotation);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 spawnPos = new Vector3(Random.Range(-3, 3), Random.Range(-4, 4), 0);
+            Instantiate(box, spawnPos, transform.rotation);
         }
     }
 
