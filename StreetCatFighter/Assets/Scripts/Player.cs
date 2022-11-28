@@ -202,9 +202,21 @@ public class Player : MonoBehaviour
         {
             speed = 10f; // 이동속도 up
             power = 10f; // 공격력 up
-            Invoke("EndBuff", 10f);
+            Invoke("EndBuff_fish", 10f);
         }
 
+        if (collision.name.Contains("Box")) 
+        {
+            // Change Player Sprite For 10 sec
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++) 
+            {
+                enemies[i].GetComponent<Enemy>().enemyPower /= 2f;
+            }
+            Invoke("EndBuff_box", 10f);
+            Debug.Log("박스를 획득했습니다. 방어력 up");
+        }
         //if (collision.name.Contains("leaflet"))
         //{
         //    SceneManager.LoadScene("BossBattle");
@@ -228,13 +240,21 @@ public class Player : MonoBehaviour
     //    }
     //}
 
-    void EndBuff()
+    void EndBuff_fish()
     {
         // 원래 값
         speed = 3f;
         power = 5f;
     }
-
+    void EndBuff_box()
+    {
+        // 원래 값
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].GetComponent<Enemy>().enemyPower = 10f;
+        }
+    }
 
     // Store Calc
     public void StCalc()

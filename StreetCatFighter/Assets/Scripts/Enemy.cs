@@ -11,13 +11,13 @@ public class Enemy : MonoBehaviour
 
     public float enemyHp = 20f; // 체력
 
+    public float enemyPower = 10f;
+
     public bool attackAvailable_p = false; // Enemy에 대한 Player의 공격 가능 여부
     public bool attackAvailable_e = false; // Player에 대한 Enemy의 공격 가능 여부
 
     public Image hpBarSprite; // 체력 게이지 Sprite
     public Image hpBarBgSprite; // 체력 게이지 배경 Sprite
-
-    public float enemyAttackPower = 10;
 
     Coroutine st;
 
@@ -94,9 +94,9 @@ public class Enemy : MonoBehaviour
         if (attackAvailable_e == true)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<Player>().playerHp -= enemyAttackPower;
+            player.GetComponent<Player>().playerHp -= enemyPower;
 
-            Debug.Log("Player가 공격당하고 있습니다");
+            Debug.Log("Player가 공격당하고 있습니다 : -" + enemyPower);
 
             CancelInvoke("RealAttack");
         }
