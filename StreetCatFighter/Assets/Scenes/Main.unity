@@ -103828,6 +103828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fish: {fileID: 6208794815768147281, guid: fb25ff432e4572f4aaf002b2502a3e9e, type: 3}
   coin: {fileID: 6161407537329701716, guid: f54aab19842f5864aa9a1059e5fef396, type: 3}
+  box: {fileID: 0}
 --- !u!4 &2030138264
 Transform:
   m_ObjectHideFlags: 0
