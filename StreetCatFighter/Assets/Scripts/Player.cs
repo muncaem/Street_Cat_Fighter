@@ -6,13 +6,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D rbComp; // rigidbody
-
-    SpriteRenderer spriteRend; // sprite renderer
-
     public bl_Joystick js; // 조이스틱
 
-    public float speed; // 스피드
+    public float speed = 3f; // 스피드
 
     public float playerHp = 100f; // 체력
     public Image hpBarSprite; // 체력 게이지
@@ -23,7 +19,7 @@ public class Player : MonoBehaviour
     public int level = 1; // 레벨
     public Text levelNum; // 레벨 Text
 
-    public float power = 5; // 공격력
+    public float power; // 공격력
 
     public int coin = 0; // 코인
     public Text coinNum; // 코인 개수 Text
@@ -35,6 +31,10 @@ public class Player : MonoBehaviour
 
     public GameObject lef; //전단지
 
+    public Animator anim;
+    bool isWalk;
+    bool isRun;
+
     void Start() 
     {
         invenCount = 0;
@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
         {
             invenbaseImg.Add(GameObject.Find("Slot" + i).transform.GetChild(0).gameObject.GetComponent<Image>());
         }
+
+        anim = GetComponent<Animator>();
+        anim.SetFloat("Speed", 0);
     }
 
     // Update is called once per frame
@@ -52,7 +55,9 @@ public class Player : MonoBehaviour
         Move();
         Attack();
         LevelUp();
+        PowerUp();
         UIBar();
+        CheckAnimState();
     }
 
     // 이동 함수
@@ -61,6 +66,27 @@ public class Player : MonoBehaviour
         Vector3 dir = new Vector3(js.Horizontal, js.Vertical, 0); // 스틱이 향한 방향 저장
         dir.Normalize();
         transform.position += dir * speed * Time.deltaTime;
+
+        if (transform.position == dir * speed * Time.deltaTime)
+        {
+            isWalk = false;
+            isRun = false;
+        }
+
+        else 
+        {
+            if (speed == 3f)
+            {
+                isWalk = true;
+                isRun = false;
+            }
+            else 
+            {
+                isWalk = false;
+                isRun = true;
+            }
+        }
+            
     }
 
     void Attack()
@@ -105,9 +131,10 @@ public class Player : MonoBehaviour
                         }
 
                         touchedObj.GetComponent<Enemy>().hpBarSprite.fillAmount
-                            = touchedObj.GetComponent<Enemy>().enemyHp / 20f;
+                            = touchedObj.GetComponent<Enemy>().enemyHp / 100f;
 
                         Debug.Log(touchedObj.name + "가 공격받고 있습니다.\nHp : " + touchedObj.GetComponent<Enemy>().enemyHp);
+                        Debug.Log("Player Power : " + power);
                     }
                 }
 
@@ -152,6 +179,43 @@ public class Player : MonoBehaviour
         }
     }
 
+    void PowerUp() 
+    {
+        switch (level)
+        {
+            case 1:
+                power = 15f;
+                break;
+            case 2:
+                power = 20f;
+                break;
+            case 3:
+                power = 23f;
+                break;
+            case 4:
+                power = 26f;
+                break;
+            case 5:
+                power = 30f;
+                break;
+            case 6:
+                power = 33f;
+                break;
+            case 7:
+                power = 36f;
+                break;
+            case 8:
+                power = 40f;
+                break;
+            case 9:
+                power = 43f;
+                break;
+            case 10:
+                power = 50f;
+                break;
+        }
+    }
+
     public void normalTime()
     {
         Time.timeScale = 1;
@@ -172,7 +236,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Hp 증가 함수
+    void CheckAnimState() 
+    {
+        if (isWalk == true)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetBool("Run", false);
+        }
+        else if (isRun == true) 
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Run", true);
+        }
+    }
+
     void HpIncrease()
     {
         // 포션
@@ -192,16 +269,26 @@ public class Player : MonoBehaviour
             playerHp -= 10;
         }
 
-        if (collision.name.Contains("Coin")) // 코인 획득 시
+        if (collision.name.Contains("BronzeCoin")) // 동화 획득 시
         {
             coin += 1;
+            coinNum.text = coin.ToString();
+        }
+        if (collision.name.Contains("SilverCoin")) // 은화 획득 시
+        {
+            coin += 5;
+            coinNum.text = coin.ToString();
+        }
+        if (collision.name.Contains("GoldCoin")) // 금화 획득 시
+        {
+            coin += 10;
             coinNum.text = coin.ToString();
         }
 
         if (collision.name.Contains("Fish"))
         {
             speed = 10f; // 이동속도 up
-            power = 10f; // 공격력 up
+            power *= 2f; // 공격력 up
             Invoke("EndBuff_fish", 10f);
         }
 
@@ -245,6 +332,8 @@ public class Player : MonoBehaviour
         // 원래 값
         speed = 3f;
         power = 5f;
+
+        anim.SetFloat("Speed", speed);
     }
     void EndBuff_box()
     {

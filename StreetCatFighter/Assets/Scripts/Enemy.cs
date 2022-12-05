@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     public float speed = 2f;
 
-    public float enemyHp = 20f; // 체력
+    public float enemyHp = 100f; // 체력
 
     public float enemyPower = 10f;
 
@@ -21,10 +21,17 @@ public class Enemy : MonoBehaviour
 
     Coroutine st;
 
+    public GameObject bronzeCoin;
+    public GameObject silverCoin;
+    public GameObject goldCoin;
+    public GameObject[] rewards;
+
     void Start()
     {
         //GameObject.FindWithTag("Player").GetComponent<Player>().isEnemyExist = true;
         playerPos = GameObject.FindWithTag("Player").transform;
+
+        rewards = new GameObject[] { null, bronzeCoin, silverCoin, goldCoin };
     }
 
     // Update is called once per frame
@@ -41,7 +48,7 @@ public class Enemy : MonoBehaviour
         Vector3 dir = (playerPos.position - this.transform.position).normalized;
         float distance = Vector3.Distance(this.transform.position, playerPos.position);
 
-        if (distance <= 3.0f && distance >= 1.0f)
+        if (distance <= 4.0f && distance >= 1.0f)
         {
             transform.Translate(dir * speed * Time.deltaTime);
             speed = 2f;
@@ -61,7 +68,7 @@ public class Enemy : MonoBehaviour
         hpBarBgSprite.transform.position = new Vector3(x, screenPos.y + 90, 0);
     }
 
-    void Attack() 
+    void Attack()
     {
         // 공격 가능 범위 판단
         GameObject player = GameObject.FindWithTag("Player");
@@ -85,8 +92,8 @@ public class Enemy : MonoBehaviour
             //st = StartCoroutine(RealAttack(2));
         }
         //else
-            //CancelInvoke("RealAttack");
-            //StopCoroutine(st);
+        //CancelInvoke("RealAttack");
+        //StopCoroutine(st);
     }
 
     void RealAttack()
@@ -100,6 +107,7 @@ public class Enemy : MonoBehaviour
 
             CancelInvoke("RealAttack");
         }
+
         // 공격 애니메이션
     }
 
@@ -107,14 +115,59 @@ public class Enemy : MonoBehaviour
     {
         if (enemyHp <= 0)
         {
-            Destroy(this.gameObject);
-
             GameObject player = GameObject.FindWithTag("Player");
 
-            player.GetComponent<Player>().exp += 40f;
+            int playerLevel = player.GetComponent<Player>().level;
+
+            switch (playerLevel) 
+            {
+                case 1:
+                    player.GetComponent<Player>().exp += 40f;
+                    break;
+                case 2:
+                    player.GetComponent<Player>().exp += 30f;
+                    break;
+                case 3:
+                    player.GetComponent<Player>().exp += 20f;
+                    break;
+                case 4:
+                    player.GetComponent<Player>().exp += 15f;
+                    break;
+                case 5:
+                    player.GetComponent<Player>().exp += 10f;
+                    break;
+                case 6:
+                    player.GetComponent<Player>().exp += 8f;
+                    break;
+                case 7:
+                    player.GetComponent<Player>().exp += 6f;
+                    break;
+                case 8:
+                    player.GetComponent<Player>().exp += 4f;
+                    break;
+                case 9:
+                    player.GetComponent<Player>().exp += 3f;
+                    break;
+                case 10:
+                    player.GetComponent<Player>().exp += 2f;
+                    break;
+            }
+            
 
             Debug.Log("적을 처치했습니다.");
+
+            CreateReward();
+
+            Destroy(this.gameObject);
             // 사망 애니메이션
         }
+    }
+    void CreateReward()
+    {
+        GameObject coin = rewards[Random.Range(0, 4)];
+        if (coin != null)
+            Instantiate(coin, this.transform.position, transform.rotation);
+        else
+            return;
     }
 }

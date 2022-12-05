@@ -371,12 +371,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  enemyHp: 20
+  enemyHp: 100
+  enemyPower: 10
   attackAvailable_p: 0
   attackAvailable_e: 0
   hpBarSprite: {fileID: 7426149611889029400}
   hpBarBgSprite: {fileID: 7426149612579204629}
-  enemyAttackPower: 10
+  bronzeCoin: {fileID: 6161407537329701716, guid: f54aab19842f5864aa9a1059e5fef396, type: 3}
+  silverCoin: {fileID: 3063567130557398849, guid: 503ecce5247a87f4fb2b5f62ce11b76f, type: 3}
+  goldCoin: {fileID: 7279760534771097633, guid: 38492cd15d17a7a4fbe6efa426b0ca29, type: 3}
+  rewards: []
 --- !u!70 &447584294923760084
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
