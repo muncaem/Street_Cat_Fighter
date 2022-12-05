@@ -14,8 +14,8 @@ public class BossPattern : MonoBehaviour//보스 공격패턴
 
     private void Awake()
     {
-        movement2D = GetComponent<Movement2d>();
-        bossweapon = GetComponent<BossWeapon>();
+        movement2D = GameObject.Find("Boss").GetComponent<Movement2d>();
+        bossweapon = GameObject.Find("Boss").GetComponent<BossWeapon>();
 
     }
 

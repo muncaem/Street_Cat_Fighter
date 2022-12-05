@@ -15,7 +15,6 @@ public class BossWeapon : MonoBehaviour
 
     public void StopFiring(AttackType attackType)
     {
-
         StopCoroutine(attackType.ToString());
     }
 
@@ -45,12 +44,12 @@ public class BossWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartFiring(AttackType.CircleFire);
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartFiring(AttackType.CircleFire);
+        //StartFiring(AttackType.CircleFire);
     }
 }
