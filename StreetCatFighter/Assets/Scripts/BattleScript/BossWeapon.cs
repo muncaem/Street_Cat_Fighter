@@ -20,8 +20,8 @@ public class BossWeapon : MonoBehaviour
 
     private IEnumerator CircleFire()
     {
-        float attackRate = 0.5f;//공격주기
-        int count = 10;//발사체 생성 개수
+        float attackRate = 0.8f;//공격주기
+        int count = 7;//발사체 생성 개수
         float intervalAngle = 360 / count;//발사체 사이의 각도
         float weightAngle = 0;//가중되는 각도
 
