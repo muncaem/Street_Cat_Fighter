@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemybullet : MonoBehaviour//보스 공격총알 스프라이트
 {
     [SerializeField]
-    private int damage = 1;
+    private float damage = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

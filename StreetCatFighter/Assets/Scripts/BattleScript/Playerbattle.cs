@@ -15,10 +15,10 @@ public class Playerbattle : MonoBehaviour//player 조이스틱
 
     public float power = 5; // 공격력
 
-    //public Image hpBarSprite; // 체력 게이지 Sprite
-    //public Image hpBarBgSprite; // 체력 게이지 배경 Sprite
+    public Image hpBarSprite; // 체력 게이지 Sprite
+    public Image hpBarBgSprite; // 체력 게이지 배경 Sprite
 
-    public Slider playerhpbar;
+    //public Slider playerhpbar;
 
     public GameObject damage;//보스hp에서 피해입는함수가져오게
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class Playerbattle : MonoBehaviour//player 조이스틱
     {
         Move();
         Attack();
-        HpBarMove();
+        //HpBarMove();
     }
 
    
@@ -57,7 +57,7 @@ public class Playerbattle : MonoBehaviour//player 조이스틱
  
     }
 
-    void HpBarMove()//hp가 오브젝트 따라다니도록
+    /*void HpBarMove()//hp가 오브젝트 따라다니도록
     {
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         float x = screenPos.x;
@@ -65,5 +65,5 @@ public class Playerbattle : MonoBehaviour//player 조이스틱
         //hpBarSprite.transform.position = new Vector3(x, screenPos.y + 90, 0);
         //hpBarBgSprite.transform.position = new Vector3(x, screenPos.y + 90, 0);
         playerhpbar.transform.position = new Vector3(x, screenPos.y + 90, 0);
-    }
+    }*/
 }

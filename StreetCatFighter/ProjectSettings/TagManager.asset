@@ -13,6 +13,7 @@ TagManager:
   - Slot
   - magnet
   - itempower
+  - Destroy
   layers:
   - Default
   - TransparentFX

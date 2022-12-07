@@ -27,8 +27,12 @@ public class Randomdraw : MonoBehaviour
     public Sprite Image8;
     public Sprite Image9;
     public Sprite Image10;
+    public Sprite Image11;
+    public Sprite Image12;
+    public Sprite Image13;
+    public Sprite Image14;
 
-    // 변수
+    // 아이템 이미지 변수
     public int RandomInt; // 랜덤 변수
 
     public GameObject bring_coin;
@@ -63,64 +67,89 @@ public class Randomdraw : MonoBehaviour
         {
             DrawImage.sprite = Image1; // DrawImage의 Sprite에 Image1(Sprite)를 적용
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 2)
         {
             DrawImage.sprite = Image2;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 3)
         {
             DrawImage.sprite = Image3;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString();
         }
         else if (RandomInt == 4)
         {
             DrawImage.sprite = Image4;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
 
         }
         else if (RandomInt == 5)
         {
             DrawImage.sprite = Image5;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 6)
         {
             DrawImage.sprite = Image6;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 7)
         {
             DrawImage.sprite = Image7;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 8)
         {
             DrawImage.sprite = Image8;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
 
         }
         else if (RandomInt == 9)
         {
             DrawImage.sprite = Image9;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
 
         }
         else if (RandomInt == 10)
         {
             DrawImage.sprite = Image10;
             bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); ///코인얻으면 코인 증가 해결X
+            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+        }
+
+        else if (RandomInt == 11)
+        {
+            DrawImage.sprite = Image11;
+            bring_coin.coin += 5;
+            bring_coin.coinNum.text = bring_coin.coin.ToString();
+        }
+        else if (RandomInt == 12)
+        {
+            DrawImage.sprite = Image12;
+            bring_coin.coin += 5;
+            bring_coin.coinNum.text = bring_coin.coin.ToString();
+        }
+        else if (RandomInt == 13)
+        {
+            DrawImage.sprite = Image13;
+            bring_coin.coin += 5;
+            bring_coin.coinNum.text = bring_coin.coin.ToString();
+        }
+        else if (RandomInt == 14)
+        {
+            DrawImage.sprite = Image14;
+            bring_coin.coin += 5;
+            bring_coin.coinNum.text = bring_coin.coin.ToString();
         }
         Invoke("CloseDraw", 2.0f); // 2초 뒤에 CloseDraw 함수를 실행
 

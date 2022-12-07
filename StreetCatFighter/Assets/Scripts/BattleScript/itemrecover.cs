@@ -10,6 +10,7 @@ public class itemrecover : MonoBehaviour
         if (collision.gameObject.tag =="itempower") // 회복아이템과 충돌시
         {
             PlayerHp.GetComponent<PlayerHp>().currentHp += 1;
+            print("체력회복");
         }
 
     }

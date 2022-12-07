@@ -16,11 +16,11 @@ public class ItemSpawn : MonoBehaviour
         currTime += Time.deltaTime;
 
         // 오브젝트를 몇초마다 생성할 것인지 조건문으로 만든다. 여기서는 10초로 했다.
-        if (currTime > 3)
+        if (currTime > 8)
         {
             // x,y,z 좌표값을 각각 다른 범위에서 랜덤하게 정해지도록 만들었다.
             //float newX = Random.Range(-10f, 10f), newY = Random.Range(-50f, 50f), newZ = Random.Range(-100f, 100f);
-            float newX = Random.Range(-5f, 5f), newY = Random.Range(-5f, 5f), newZ = Random.Range(-5f, 5f);
+            float newX = Random.Range(-4f, 4f), newY = Random.Range(-4f, 4f), newZ = Random.Range(-4f, 4f);
             // 생성할 오브젝트를 불러온다.
             GameObject monster = Instantiate(itemPrefabs[0]);
 

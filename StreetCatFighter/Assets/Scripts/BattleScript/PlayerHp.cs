@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
@@ -12,14 +13,22 @@ public class PlayerHp : MonoBehaviour
     public float MaxHP => maxHp;
     public float currentHP => currentHp;//외부에서도 접근할 수 있도록 만들기
 
+    public Image hpBarSprite; // 플레이어 체력 게이지
+
     private void Awake()
     {
         currentHp = maxHp;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    void UIBar()
+    {
+        hpBarSprite.fillAmount = currentHp/10f;
+    }
+
     public void TakeDamage(float damage)
     {
+        hpBarSprite.fillAmount = currentHp/10f;
         currentHp -= damage;
         StopCoroutine("HitColorAnimation");
         StartCoroutine("HitColorAnimation");
