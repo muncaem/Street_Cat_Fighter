@@ -15,6 +15,9 @@ public class PlayerHp : MonoBehaviour
 
     public Image hpBarSprite; // 플레이어 체력 게이지
 
+    public GameObject BaseUIBG;//보스 죽거나 플레이어 죽으면 팝업
+    public GameObject FailMent;//실패 멘트
+
     private void Awake()
     {
         currentHp = maxHp;
@@ -33,9 +36,11 @@ public class PlayerHp : MonoBehaviour
         StopCoroutine("HitColorAnimation");
         StartCoroutine("HitColorAnimation");
 
-        if(currentHp <= 0)
+        if(currentHp <= 0)//플레이어 사망
         {
             Debug.Log("player Hp: die");
+            BaseUIBG.SetActive(true);
+            FailMent.SetActive(true);
         }
     }
 

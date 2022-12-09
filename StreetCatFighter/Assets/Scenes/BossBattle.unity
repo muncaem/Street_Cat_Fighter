@@ -466,17 +466,17 @@ RectTransform:
   m_GameObject: {fileID: 215252273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4999998, y: 50, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 806452320}
   - {fileID: 1234078875}
-  m_Father: {fileID: 1484152171}
-  m_RootOrder: 0
+  m_Father: {fileID: 1427005655}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122, y: -3223}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchoredPosition: {x: -139, y: 590}
+  m_SizeDelta: {x: 300, y: 74.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215252275
 MonoBehaviour:
@@ -671,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287288495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.69, y: 1.35, z: 0}
+  m_LocalPosition: {x: -0.75, y: 1.67, z: 0}
   m_LocalScale: {x: 4.6452003, y: 4.6452003, z: 4.6452003}
   m_Children: []
   m_Father: {fileID: 0}
@@ -730,6 +730,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 1000
+  BaseUIBG: {fileID: 2094296079}
+  ClearMent: {fileID: 386230070}
+  bosshpbar: {fileID: 215252276}
+  Boss: {fileID: 287288499}
 --- !u!1 &295674764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1079,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782528285}
-        m_TargetAssemblyTypeName: BossBattle, Assembly-CSharp
+      - m_Target: {fileID: 2094296083}
+        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
         m_MethodName: backToMain
         m_Mode: 1
         m_Arguments:
@@ -2768,6 +2772,7 @@ GameObject:
   - component: {fileID: 1427005654}
   - component: {fileID: 1427005653}
   - component: {fileID: 1427005652}
+  - component: {fileID: 1427005656}
   m_Layer: 5
   m_Name: Bosshpbar Canvas
   m_TagString: Untagged
@@ -2848,7 +2853,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1357028668}
-  - {fileID: 1484152171}
+  - {fileID: 215252274}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2857,51 +2862,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1484152170
-GameObject:
+--- !u!114 &1427005656
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1484152171}
-  - component: {fileID: 1484152172}
-  m_Layer: 5
-  m_Name: PanelBosshp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1484152171
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484152170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.02, z: 0.5}
-  m_Children:
-  - {fileID: 215252274}
-  m_Father: {fileID: 1427005655}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -73, y: 592}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &1484152172
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484152170}
-  m_CullTransparentMesh: 1
+  m_GameObject: {fileID: 1427005651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f117242954457e49baeea81c39ac461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj:
+  - {fileID: 287288499}
+  hp_bar:
+  - {fileID: 215252273}
 --- !u!1001 &1531506541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4050,6 +4026,8 @@ MonoBehaviour:
   maxHp: 10
   currentHp: 0
   hpBarSprite: {fileID: 1647647157}
+  BaseUIBG: {fileID: 2094296079}
+  FailMent: {fileID: 1756858303}
 --- !u!114 &2018264320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4273,6 +4251,7 @@ GameObject:
   - component: {fileID: 2094296080}
   - component: {fileID: 2094296082}
   - component: {fileID: 2094296081}
+  - component: {fileID: 2094296083}
   m_Layer: 5
   m_Name: BaseUI
   m_TagString: Untagged
@@ -4339,6 +4318,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094296079}
   m_CullTransparentMesh: 1
+--- !u!114 &2094296083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094296079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 800dcc0428ba84e4d971d3928ef9d476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108562120
 GameObject:
   m_ObjectHideFlags: 0

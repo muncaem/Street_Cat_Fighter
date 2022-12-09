@@ -37,6 +37,9 @@ public class Randomdraw : MonoBehaviour
 
     public GameObject bring_coin;
 
+    List<Image> invenbaseImg = new List<Image>();
+    int invenCount, invennum;
+
     void Start()//0
     {
         for (int i = 0; i < weights.Length; i++)
@@ -58,7 +61,11 @@ public class Randomdraw : MonoBehaviour
 
     public void OneDraw() // 1회 뽑기 버튼을 클릭 시
     {
-        Player bring_coin = GameObject.Find("Player").GetComponent<Player>();
+        Player bring_coin = GameObject.Find("Player").GetComponent<Player>();//플레이어의 현재 코인 수가져오기
+
+        Randomdraw bringing = GetComponent<Randomdraw>();
+        //int item_cost = 0;
+        //int.TryParse(bringing.costbring, out item_cost);
 
         //DrawShop.SetActive(false); //뽑기 선택 화면을 비활성화
         DrawWindow.SetActive(true);// 랜덤 이미지를 출력한 화면을 활성화
@@ -66,7 +73,7 @@ public class Randomdraw : MonoBehaviour
         if (RandomInt == 1) // RandomInt가 1이라면
         {
             DrawImage.sprite = Image1; // DrawImage의 Sprite에 Image1(Sprite)를 적용
-            bring_coin.coin += 5;
+            bring_coin.coin += 10;
             bring_coin.coinNum.text = bring_coin.coin.ToString(); 
         }
         else if (RandomInt == 2)
@@ -78,78 +85,142 @@ public class Randomdraw : MonoBehaviour
         else if (RandomInt == 3)
         {
             DrawImage.sprite = Image3;
-            bring_coin.coin += 5;
+            bring_coin.coin += 1;
             bring_coin.coinNum.text = bring_coin.coin.ToString();
         }
         else if (RandomInt == 4)
         {
             DrawImage.sprite = Image4;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
 
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 5)
         {
             DrawImage.sprite = Image5;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 6)
         {
             DrawImage.sprite = Image6;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 7)
         {
             DrawImage.sprite = Image7;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 8)
         {
             DrawImage.sprite = Image8;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
 
         }
         else if (RandomInt == 9)
         {
             DrawImage.sprite = Image9;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
 
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 10)
         {
             DrawImage.sprite = Image10;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString(); 
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
 
         else if (RandomInt == 11)
         {
             DrawImage.sprite = Image11;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString();
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 12)
         {
             DrawImage.sprite = Image12;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString();
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 13)
         {
             DrawImage.sprite = Image13;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString();
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         else if (RandomInt == 14)
         {
             DrawImage.sprite = Image14;
-            bring_coin.coin += 5;
-            bring_coin.coinNum.text = bring_coin.coin.ToString();
+            if (1 < invennum && invennum < 3)
+            {
+                invennum += 1;
+
+                invenbaseImg[invenCount].sprite = bringing.DrawImage.GetComponent<SpriteRenderer>().sprite;
+                invenbaseImg[invenCount].gameObject.SetActive(true);
+                invenCount++;
+            }
         }
         Invoke("CloseDraw", 2.0f); // 2초 뒤에 CloseDraw 함수를 실행
 
