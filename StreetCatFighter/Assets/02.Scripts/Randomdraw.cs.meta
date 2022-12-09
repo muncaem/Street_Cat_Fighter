@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 1ca73edc13fe5ea4591a78f1747913f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DrawShop: {instanceID: 0}
+  - DrawWindow: {instanceID: 0}
+  - DrawImage: {instanceID: 0}
+  - Image1: {fileID: -1603291472181913768, guid: ef4e9d04f66a0714f87a382ab7ddf22d, type: 3}
+  - Image2: {instanceID: 0}
+  - Image3: {instanceID: 0}
+  - Image4: {instanceID: 0}
+  - Image5: {instanceID: 0}
+  - Image6: {instanceID: 0}
+  - Image7: {instanceID: 0}
+  - Image8: {instanceID: 0}
+  - Image9: {instanceID: 0}
+  - Image10: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
