@@ -10,11 +10,14 @@ public class ChangingAppearance : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < options.Length; i++)
+        if(part != null)
         {
-            if (i == index)
+            for (int i = 0; i < options.Length; i++)
             {
-                part.sprite = options[i];
+                if (i == index)
+                {
+                    part.sprite = options[i];
+                }
             }
         }
     }
@@ -29,5 +32,10 @@ public class ChangingAppearance : MonoBehaviour
         {
             index = 0;
         }
+    }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 }
