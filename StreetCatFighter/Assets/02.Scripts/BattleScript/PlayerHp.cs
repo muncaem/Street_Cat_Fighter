@@ -18,6 +18,10 @@ public class PlayerHp : MonoBehaviour
     public GameObject BaseUIBG;//º¸½º Á×°Å³ª ÇÃ·¹ÀÌ¾î Á×À¸¸é ÆË¾÷
     public GameObject FailMent;//½ÇÆÐ ¸àÆ®
 
+    public Image Panel;
+    float time = 0f;
+    float F_time = 8f;
+
     private void Awake()
     {
         currentHp = maxHp;
@@ -59,9 +63,26 @@ public class PlayerHp : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (currentHP <= 0)
+        {
+            StartCoroutine(FadeFlow());
+        }
+    }
+
+    IEnumerator FadeFlow()
+    {
+        Panel.gameObject.SetActive(true);
+        Color alpha = Panel.color;
+        while (alpha.a < 1f)
+        {
+            time += Time.deltaTime / F_time;
+            alpha.a = Mathf.Lerp(0, 1, time);
+            Panel.color = alpha;
+            yield return null;
+        }
+        yield return null;
+        Time.timeScale = 0;
     }
 }
