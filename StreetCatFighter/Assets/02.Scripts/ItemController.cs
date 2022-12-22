@@ -175,12 +175,14 @@ public class ItemController : MonoBehaviour
         clear = false;
         Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
         enemyProperty.speed = 2;
+        //Effect.transform.GetChild(1).gameObject.SetActive(false);
     }
     IEnumerator SpeedPotion()
     {
         yield return new WaitForSeconds(10.0f);
         speed = false;
         playerProperty.speed = 3;
+        //Effect.transform.GetChild(2).gameObject.SetActive(false);
     }
     IEnumerator NoDamgPotion()
     {
@@ -188,10 +190,12 @@ public class ItemController : MonoBehaviour
         nodamg = false;
         Enemy enemyProperty = GameObject.Find("Pigeon(Clone)").GetComponent<Enemy>();
         enemyProperty.enemyPower = 10;
+        //Effect.transform.GetChild(3).gameObject.SetActive(false);
     }
     IEnumerator MagnetPotion()
     {
         yield return new WaitForSeconds(10.0f);
         mag = false;
+        //Effect.transform.GetChild(4).gameObject.SetActive(false);
     }
 }

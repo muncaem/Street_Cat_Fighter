@@ -9,6 +9,7 @@ public class Traveler : MonoBehaviour
     void Start()
     {
         //transform.position = new Vector3(Random.Range(-3, 3), Random.Range(-4, 4), 0);
+        mapicon = GameObject.Find("UI").transform.GetChild(13).gameObject;
     }
 
     // Update is called once per frame
@@ -65,4 +66,10 @@ public class Traveler : MonoBehaviour
             p.hpBarSprite.fillAmount = p.playerHp / 100f;
         }
     }
+
+    //public void normaltime()
+    //{
+    //    Time.timeScale = 1;
+    //    GameObject.Find("Traveler").gameObject.SetActive(false);
+    //}
 }
