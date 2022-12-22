@@ -13,6 +13,7 @@ TagManager:
   - Slot
   - magnet
   - itempower
+  - EnemyUI
   layers:
   - Default
   - TransparentFX

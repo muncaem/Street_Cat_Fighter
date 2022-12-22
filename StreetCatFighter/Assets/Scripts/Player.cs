@@ -31,14 +31,22 @@ public class Player : MonoBehaviour
 
     public GameObject lef; //전단지
 
+    public GameObject boxSprite; // 눈 구멍 박스 스프라이트
+
+    public SpriteRenderer renderer;
+    public Sprite[] playerSprite;
+
     public Animator anim;
-    bool isWalk;
-    bool isRun;
+    //bool isWalk;
+    //bool isRun;
 
     void Start() 
     {
         invenCount = 0;
         invennum = 0;
+
+        //renderer = GetComponent<SpriteRenderer>();
+        //renderer.sprite = playerSprite[0];
 
         for (int i = 1; i < 4; i++)
         {
@@ -46,7 +54,7 @@ public class Player : MonoBehaviour
         }
 
         anim = GetComponent<Animator>();
-        anim.SetFloat("Speed", 0);
+        // anim.SetFloat("Speed", 0);
     }
 
     // Update is called once per frame
@@ -66,27 +74,6 @@ public class Player : MonoBehaviour
         Vector3 dir = new Vector3(js.Horizontal, js.Vertical, 0); // 스틱이 향한 방향 저장
         dir.Normalize();
         transform.position += dir * speed * Time.deltaTime;
-
-        if (transform.position == dir * speed * Time.deltaTime)
-        {
-            isWalk = false;
-            isRun = false;
-        }
-
-        else 
-        {
-            if (speed == 3f)
-            {
-                isWalk = true;
-                isRun = false;
-            }
-            else 
-            {
-                isWalk = false;
-                isRun = true;
-            }
-        }
-            
     }
 
     void Attack()
@@ -124,7 +111,10 @@ public class Player : MonoBehaviour
                         float enemyHp = touchedObj.GetComponent<Enemy>().enemyHp;
 
                         if (enemyHp > 0)
+                        {
                             touchedObj.GetComponent<Enemy>().enemyHp -= power;
+                            touchedObj.GetComponent<Enemy>().anim.SetTrigger("isAttacked");
+                        }
                         else
                         {
                             touchedObj.GetComponent<Enemy>().enemyHp = 0;
@@ -132,6 +122,8 @@ public class Player : MonoBehaviour
 
                         touchedObj.GetComponent<Enemy>().hpBarSprite.fillAmount
                             = touchedObj.GetComponent<Enemy>().enemyHp / 100f;
+
+                       
 
                         Debug.Log(touchedObj.name + "가 공격받고 있습니다.\nHp : " + touchedObj.GetComponent<Enemy>().enemyHp);
                         Debug.Log("Player Power : " + power);
@@ -238,7 +230,33 @@ public class Player : MonoBehaviour
 
     void CheckAnimState() 
     {
-        if (isWalk == true)
+        anim.SetBool("isAttacked", false);
+
+        /*GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemy.Length; i++) 
+        {
+            if (enemy[i].GetComponent<Enemy>().RealAttack() == true) 
+            {
+                anim.SetBool("isAttacked", true);
+            }
+            else
+                anim.SetBool("isAttacked", false);
+        }*/
+
+        if (speed == 3f)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetBool("Run", false);
+        }
+
+        else if (speed > 3f) 
+        {
+            anim.SetBool("Walk", false);
+            anim.SetBool("Run", true);
+        }
+
+
+        /*if (isWalk == true)
         {
             anim.SetBool("Walk", true);
             anim.SetBool("Run", false);
@@ -247,7 +265,7 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("Walk", false);
             anim.SetBool("Run", true);
-        }
+        }*/
     }
 
     void HpIncrease()
@@ -294,14 +312,15 @@ public class Player : MonoBehaviour
 
         if (collision.name.Contains("Box")) 
         {
-            // Change Player Sprite For 10 sec
-
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < enemies.Length; i++) 
             {
                 enemies[i].GetComponent<Enemy>().enemyPower /= 2f;
             }
             Invoke("EndBuff_box", 10f);
+
+            boxSprite.SetActive(true);
+
             Debug.Log("박스를 획득했습니다. 방어력 up");
         }
         //if (collision.name.Contains("leaflet"))
@@ -335,6 +354,7 @@ public class Player : MonoBehaviour
 
         anim.SetFloat("Speed", speed);
     }
+
     void EndBuff_box()
     {
         // 원래 값
@@ -343,6 +363,8 @@ public class Player : MonoBehaviour
         {
             enemies[i].GetComponent<Enemy>().enemyPower = 10f;
         }
+
+        boxSprite.SetActive(false);
     }
 
     // Store Calc
