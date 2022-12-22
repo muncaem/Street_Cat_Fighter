@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7426149611889029400}
   m_Layer: 3
   m_Name: HpBar
-  m_TagString: Untagged
+  m_TagString: EnemyUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7426149612579204629}
   m_Layer: 3
   m_Name: HpBarBg
-  m_TagString: Untagged
+  m_TagString: EnemyUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 7426149613180480937}
   m_Layer: 3
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: EnemyUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 7426149613703535868}
   - component: {fileID: 7426149613703535858}
   - component: {fileID: 447584294923760084}
+  - component: {fileID: 255575755753679460}
   m_Layer: 3
   m_Name: Pigeon
   m_TagString: Enemy
@@ -381,6 +382,7 @@ MonoBehaviour:
   silverCoin: {fileID: 3063567130557398849, guid: 503ecce5247a87f4fb2b5f62ce11b76f, type: 3}
   goldCoin: {fileID: 7279760534771097633, guid: 38492cd15d17a7a4fbe6efa426b0ca29, type: 3}
   rewards: []
+  anim: {fileID: 255575755753679460}
 --- !u!70 &447584294923760084
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -397,3 +399,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.6236642, y: 0.7922126}
   m_Size: {x: 8.9904585, y: 7.921088}
   m_Direction: 1
+--- !u!95 &255575755753679460
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426149613703535865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba36fbcbcce49ee48b1105d9a3980afa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

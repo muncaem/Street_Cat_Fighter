@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     public float enemyHp = 100f; // 체력
 
-    public float enemyPower = 10f;
+    public float enemyPower = 5f;
 
     public bool attackAvailable_p = false; // Enemy에 대한 Player의 공격 가능 여부
     public bool attackAvailable_e = false; // Player에 대한 Enemy의 공격 가능 여부
@@ -19,12 +19,14 @@ public class Enemy : MonoBehaviour
     public Image hpBarSprite; // 체력 게이지 Sprite
     public Image hpBarBgSprite; // 체력 게이지 배경 Sprite
 
-    Coroutine st;
+    // Coroutine st;
 
     public GameObject bronzeCoin;
     public GameObject silverCoin;
     public GameObject goldCoin;
     public GameObject[] rewards;
+
+    public Animator anim;
 
     void Start()
     {
@@ -32,11 +34,16 @@ public class Enemy : MonoBehaviour
         playerPos = GameObject.FindWithTag("Player").transform;
 
         rewards = new GameObject[] { null, bronzeCoin, silverCoin, goldCoin };
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //anim.SetBool("isAttack", false);
+        //anim.SetBool("isAttacked", false);
+
         HpBarMove();
         Move();
         Attack();
@@ -87,7 +94,6 @@ public class Enemy : MonoBehaviour
 
         if (attackAvailable_e == true)
         {
-
             Invoke("RealAttack", 2f);
             //st = StartCoroutine(RealAttack(2));
         }
@@ -105,9 +111,13 @@ public class Enemy : MonoBehaviour
 
             Debug.Log("Player가 공격당하고 있습니다 : -" + enemyPower);
 
-            CancelInvoke("RealAttack");
-        }
+            // 애니메이터 제어
+            player.GetComponent<Player>().anim.SetBool("isAttacked", true);
+            anim.SetBool("isAttack", true);
 
+            CancelInvoke("RealAttack");
+            //player.GetComponent<Player>().renderer.sprite = player.GetComponent<Player>().playerSprite[1];
+        }
         // 공격 애니메이션
     }
 
@@ -162,6 +172,7 @@ public class Enemy : MonoBehaviour
             // 사망 애니메이션
         }
     }
+
     void CreateReward()
     {
         GameObject coin = rewards[Random.Range(0, 4)];
