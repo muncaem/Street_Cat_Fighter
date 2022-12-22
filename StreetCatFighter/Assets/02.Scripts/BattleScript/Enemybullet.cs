@@ -14,6 +14,11 @@ public class Enemybullet : MonoBehaviour//보스 공격총알 스프라이트
             collision.GetComponent<PlayerHp>().TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if(collision.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
     }
     // Start is called before the first frame update
     void Start()

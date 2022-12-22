@@ -14,6 +14,8 @@ TagManager:
   - magnet
   - itempower
   - EnemyUI
+  - Destroy
+  - Wall
   layers:
   - Default
   - TransparentFX
