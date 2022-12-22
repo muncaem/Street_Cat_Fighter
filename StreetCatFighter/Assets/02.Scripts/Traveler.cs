@@ -67,9 +67,9 @@ public class Traveler : MonoBehaviour
         }
     }
 
-    public void normaltime()
-    {
-        Time.timeScale = 1;
-        GameObject.Find("Traveler").gameObject.SetActive(false);
-    }
+    //public void normaltime()
+    //{
+    //    Time.timeScale = 1;
+    //    GameObject.Find("Traveler").gameObject.SetActive(false);
+    //}
 }

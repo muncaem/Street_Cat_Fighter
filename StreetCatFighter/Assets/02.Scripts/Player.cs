@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     List<Image> invenbaseImg = new List<Image>();
     int invenCount, invennum;
-
+    bool pause = false;
     public GameObject lef; //전단지
 
     public GameObject boxSprite; // 눈 구멍 박스 스프라이트
@@ -66,6 +66,14 @@ public class Player : MonoBehaviour
         PowerUp();
         UIBar();
         CheckAnimState();
+        if(pause == true)
+        {
+            Time.timeScale = 0;
+        }
+        if(pause == false)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     // 이동 함수
@@ -132,32 +140,35 @@ public class Player : MonoBehaviour
 
                 if(touchedObj.name == "machine")
                 {
-                    GameObject.Find("자판기팝업").transform.GetChild(0).gameObject.SetActive(true);
-                    bool pause = true;
-                    if (pause == true)
-                    {
-                        Time.timeScale = 0;
-                    }
+                    GameObject.Find("---자판기---").transform.GetChild(0).gameObject.SetActive(true);
+                    pause = true;
+                    //if (pause == true)
+                    //{
+                    //    Time.timeScale = 0;
+                    //}
+                    //Time.timeScale = 0;
                 }
 
                 if(touchedObj.name == "StoreTile")
                 {
                     GameObject.Find("---Store---").transform.GetChild(0).gameObject.SetActive(true);
-                    bool pause = true;
-                    if (pause == true)
-                    {
-                        Time.timeScale = 0;
-                    }
+                    //StoreOpen randomcreate = GameObject.Find("Store1").GetComponent<StoreOpen>();
+                    //randomcreate.RandomItemStore();
+                    pause = true;
+                    //if (pause == true)
+                    //{
+                    //    Time.timeScale = 0;
+                    //}
                 }
 
                 if(touchedObj.name == "Traveler")
                 {
                     GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(true);
-                    bool pause = true;
-                    if(pause == true)
-                    {
-                        Time.timeScale = 0;
-                    }
+                    pause = true;
+                    //if(pause == true)
+                    //{
+                    //    Time.timeScale = 0;
+                    //}
                 }
 
                 if(touchedObj.name == "leaflet")
@@ -210,7 +221,7 @@ public class Player : MonoBehaviour
 
     public void normalTime()
     {
-        Time.timeScale = 1;
+        pause = false;
     }
 
     void LevelUp() 
