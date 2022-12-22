@@ -59,10 +59,12 @@ public class Enemy : MonoBehaviour
         {
             transform.Translate(dir * speed * Time.deltaTime);
             speed = 2f;
+            anim.SetBool("Walk", true);
         }
         else
         {
             speed = 0f;
+            anim.SetBool("Walk", false);
         }
     }
 
@@ -94,6 +96,7 @@ public class Enemy : MonoBehaviour
 
         if (attackAvailable_e == true)
         {
+            anim.SetBool("Walk", true);
             Invoke("RealAttack", 2f);
             //st = StartCoroutine(RealAttack(2));
         }
@@ -113,7 +116,7 @@ public class Enemy : MonoBehaviour
 
             // 애니메이터 제어
             player.GetComponent<Player>().anim.SetBool("isAttacked", true);
-            anim.SetBool("isAttack", true);
+            anim.SetTrigger("isAttack");
 
             CancelInvoke("RealAttack");
             //player.GetComponent<Player>().renderer.sprite = player.GetComponent<Player>().playerSprite[1];

@@ -20,6 +20,8 @@ public class BossBattle : MonoBehaviour
     public GameObject ClearMent;
     public GameObject FailMent;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class BossBattle : MonoBehaviour
         {
             CancelInvoke();
         }
+        isDead();
     }
 
     // Update is called once per frame
@@ -56,6 +59,12 @@ public class BossBattle : MonoBehaviour
             //
             //...
         }
+    }
+
+    void isDead() 
+    {
+        if (bossHp <= 0)
+            anim.SetBool("Die", true);
     }
 
     public void BeAttacked()
