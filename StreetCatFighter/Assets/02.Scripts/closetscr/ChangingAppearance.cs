@@ -22,7 +22,7 @@ public class ChangingAppearance : MonoBehaviour
         }
     }
 
-    public void Swap()
+    public void skinSwap()
     {
         if (index < options.Length - 1)
         {
@@ -34,8 +34,20 @@ public class ChangingAppearance : MonoBehaviour
         }
     }
 
-    public void Awake()
+    public void weaponSwap()
     {
-        DontDestroyOnLoad(this);
+        if (index < options.Length - 1)
+        {
+            index++;
+        }
+        else
+        {
+            index = 0;
+        }
     }
+
+    //public void Awake()
+    //{
+    //    DontDestroyOnLoad(this);
+    //}
 }

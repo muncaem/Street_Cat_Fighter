@@ -140,8 +140,14 @@ public class Player : MonoBehaviour
 
                 if(touchedObj.name == "machine")
                 {
-                    GameObject.Find("---자판기---").transform.GetChild(0).gameObject.SetActive(true);
-                    pause = true;
+                    GameObject machinobj = GameObject.Find("---자판기---").transform.GetChild(0).gameObject;
+                    machinobj.SetActive(true);
+
+                    if(machinobj.activeSelf == true)
+                    {
+                        pause = true;
+                    }
+                    //pause = true;
                     //if (pause == true)
                     //{
                     //    Time.timeScale = 0;
@@ -151,10 +157,16 @@ public class Player : MonoBehaviour
 
                 if(touchedObj.name == "StoreTile")
                 {
-                    GameObject.Find("---Store---").transform.GetChild(0).gameObject.SetActive(true);
+                    GameObject storeobj = GameObject.Find("---Store---").transform.GetChild(0).gameObject;
+                    storeobj.SetActive(true);
+
+                    if(storeobj.activeSelf == true)
+                    {
+                        pause = true;
+                    }
                     //StoreOpen randomcreate = GameObject.Find("Store1").GetComponent<StoreOpen>();
                     //randomcreate.RandomItemStore();
-                    pause = true;
+                    //pause = true;
                     //if (pause == true)
                     //{
                     //    Time.timeScale = 0;
@@ -163,8 +175,14 @@ public class Player : MonoBehaviour
 
                 if(touchedObj.name == "Traveler")
                 {
-                    GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject.SetActive(true);
-                    pause = true;
+                    GameObject travelerobj = GameObject.Find("---나그네상점---").transform.GetChild(0).gameObject;
+                    travelerobj.SetActive(true);
+
+                    if(travelerobj.activeSelf == true)
+                    {
+                        pause = true;
+                    }
+                    //pause = true;
                     //if(pause == true)
                     //{
                     //    Time.timeScale = 0;
