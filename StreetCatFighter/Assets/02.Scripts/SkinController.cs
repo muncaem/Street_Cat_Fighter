@@ -30,8 +30,10 @@ public class SkinController : MonoBehaviour
             ChangingAppearance sksc = skindata.GetComponent<ChangingAppearance>();
             skselectImg = skinselect.transform.GetComponent<SpriteRenderer>();
             GameObject player = GameObject.Find("player");
+            
             SpriteRenderer playerimg = player.transform.GetComponent<SpriteRenderer>();
             playerimg.sprite = sksc.options[sksc.index];
+            
             //skselectImg.sprite = sksc.options[sksc.index];
             skinselect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }

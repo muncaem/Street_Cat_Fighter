@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   enemyHp: 100
-  enemyPower: 10
+  enemyPower: 5
   attackAvailable_p: 0
   attackAvailable_e: 0
   hpBarSprite: {fileID: 7426149611889029400}

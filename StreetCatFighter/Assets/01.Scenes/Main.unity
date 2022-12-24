@@ -71162,7 +71162,7 @@ Transform:
   m_GameObject: {fileID: 339353879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.3, y: 2.8, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.2}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children: []
   m_Father: {fileID: 2020372786}
   m_RootOrder: 2
@@ -71206,7 +71206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5f6ed5a42df73c74dad2f3fd0774af51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -78986,6 +78986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pigeon: {fileID: 7426149613703535865, guid: a51d3af3f1742b64bb1bfb397293109b, type: 3}
+  enemyNum: 0
 --- !u!4 &1565016643
 Transform:
   m_ObjectHideFlags: 0
@@ -105269,6 +105270,8 @@ MonoBehaviour:
   cantbuywin: {fileID: 1554523773}
   canbuy: {fileID: 1373408402}
   nomorewin: {fileID: 1014225735}
+  invenCount: 0
+  invennum: 0
   lef: {fileID: 1090413627}
   boxSprite: {fileID: 339353879}
   renderer: {fileID: 2020372785}
@@ -105276,6 +105279,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd2c6cdeadd55c3479e2d61670f0e149, type: 3}
   - {fileID: 21300000, guid: 1fb774085dd7ec04bba0e35004c2aabf, type: 3}
   anim: {fileID: 0}
+  controller1: {fileID: 9100000, guid: e26f0dee05260304096859b0bfb3bd8f, type: 2}
+  controller2: {fileID: 9100000, guid: 5c84353a928451c42815467a8c9f1245, type: 2}
 --- !u!50 &2020372788
 Rigidbody2D:
   serializedVersion: 4

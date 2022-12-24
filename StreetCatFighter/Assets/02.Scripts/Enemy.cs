@@ -30,20 +30,18 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        //GameObject.FindWithTag("Player").GetComponent<Player>().isEnemyExist = true;
         playerPos = GameObject.FindWithTag("Player").transform;
 
         rewards = new GameObject[] { null, bronzeCoin, silverCoin, goldCoin };
 
         anim = GetComponent<Animator>();
+
+        GameObject.Find("EnemySpawnManager").GetComponent<EnemySpawnManager>().enemyNum++;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //anim.SetBool("isAttack", false);
-        //anim.SetBool("isAttacked", false);
-
         HpBarMove();
         Move();
         Attack();
@@ -98,11 +96,11 @@ public class Enemy : MonoBehaviour
         {
             anim.SetBool("Walk", true);
             Invoke("RealAttack", 2f);
-            //st = StartCoroutine(RealAttack(2));
         }
-        //else
-        //CancelInvoke("RealAttack");
-        //StopCoroutine(st);
+        else 
+        {
+            anim.SetBool("isAttack", false);
+        }
     }
 
     void RealAttack()
@@ -116,10 +114,9 @@ public class Enemy : MonoBehaviour
 
             // 애니메이터 제어
             player.GetComponent<Player>().anim.SetBool("isAttacked", true);
-            anim.SetTrigger("isAttack");
+            anim.SetBool("isAttack", true);
 
             CancelInvoke("RealAttack");
-            //player.GetComponent<Player>().renderer.sprite = player.GetComponent<Player>().playerSprite[1];
         }
         // 공격 애니메이션
     }
@@ -129,7 +126,6 @@ public class Enemy : MonoBehaviour
         if (enemyHp <= 0)
         {
             GameObject player = GameObject.FindWithTag("Player");
-
             int playerLevel = player.GetComponent<Player>().level;
 
             switch (playerLevel) 
@@ -165,14 +161,11 @@ public class Enemy : MonoBehaviour
                     player.GetComponent<Player>().exp += 2f;
                     break;
             }
-            
 
-            Debug.Log("적을 처치했습니다.");
-
+            GameObject.Find("EnemySpawnManager").GetComponent<EnemySpawnManager>().enemyNum--;
+            Debug.Log("비둘기 수" + GameObject.Find("EnemySpawnManager").GetComponent<EnemySpawnManager>().enemyNum);
             CreateReward();
-
             Destroy(this.gameObject);
-            // 사망 애니메이션
         }
     }
 

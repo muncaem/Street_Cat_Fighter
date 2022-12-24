@@ -33,20 +33,20 @@ public class Player : MonoBehaviour
 
     public GameObject boxSprite; // ´« ±¸¸Û ¹Ú½º ½ºÇÁ¶óÀÌÆ®
 
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
     public Sprite[] playerSprite;
 
+    GameObject skinSave;
+    int skinOption;
+
     public Animator anim;
-    //bool isWalk;
-    //bool isRun;
+    public RuntimeAnimatorController controller1;
+    public RuntimeAnimatorController controller2;
 
     void Start() 
     {
         invenCount = 0;
         invennum = 0;
-
-        //renderer = GetComponent<SpriteRenderer>();
-        //renderer.sprite = playerSprite[0];
 
         for (int i = 1; i < 4; i++)
         {
@@ -54,7 +54,23 @@ public class Player : MonoBehaviour
         }
 
         anim = GetComponent<Animator>();
-        // anim.SetFloat("Speed", 0);
+
+        if (GameObject.Find("skinsave") != null)
+        {
+            skinSave = GameObject.Find("skinsave");
+            skinOption = skinSave.GetComponent<ChangingAppearance>().index;
+
+            if (skinOption == 1)
+            {
+                GetComponent<Animator>().runtimeAnimatorController = controller1;
+            }
+            else if (skinOption == 2) 
+            {
+                GetComponent<Animator>().runtimeAnimatorController = controller2;
+            }
+        }
+        else
+            anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -261,17 +277,6 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("isAttacked", false);
 
-        /*GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        for (int i = 0; i < enemy.Length; i++) 
-        {
-            if (enemy[i].GetComponent<Enemy>().RealAttack() == true) 
-            {
-                anim.SetBool("isAttacked", true);
-            }
-            else
-                anim.SetBool("isAttacked", false);
-        }*/
-
         if (speed == 3f)
         {
             anim.SetBool("Walk", true);
@@ -283,18 +288,6 @@ public class Player : MonoBehaviour
             anim.SetBool("Walk", false);
             anim.SetBool("Run", true);
         }
-
-
-        /*if (isWalk == true)
-        {
-            anim.SetBool("Walk", true);
-            anim.SetBool("Run", false);
-        }
-        else if (isRun == true) 
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Run", true);
-        }*/
     }
 
     void HpIncrease()
