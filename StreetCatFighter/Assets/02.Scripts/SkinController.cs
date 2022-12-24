@@ -5,37 +5,45 @@ using UnityEngine.UI;
 
 public class SkinController : MonoBehaviour
 {
-    GameObject skinobj, select, player;
-    SpriteRenderer selectImg;
+    GameObject savedata, weapondata, skindata, weaponselect, skinselect, player;
+    SpriteRenderer wpselectImg, skselectImg;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
-        skinobj = GameObject.Find("SaveSkin");
+        savedata = GameObject.Find("SaveSkin");
+        weapondata = savedata.transform.GetChild(0).gameObject;
+        skindata = savedata.transform.GetChild(1).gameObject;
 
-        if(skinobj != null)
+        if(savedata != null)
         {
-            select = skinobj.transform.GetChild(0).gameObject;
-            //select.SetActive(true);
+            //weapon choose
+            weaponselect = weapondata.transform.GetChild(0).gameObject;
+            ChangingAppearance wpsc = weapondata.GetComponent<ChangingAppearance>();
+            wpselectImg = weaponselect.transform.GetComponent<SpriteRenderer>();
+            wpselectImg.sprite = wpsc.options[wpsc.index];
+            weaponselect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-            ChangingAppearance skindata = skinobj.GetComponent<ChangingAppearance>();
-
-            selectImg = select.transform.GetComponent<SpriteRenderer>();
-            selectImg.sprite = skindata.options[skindata.index];
-
-            select.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            //select.transform.position = new Vector2(player.transform.position.x + 5.0f, player.transform.position.y + 1.0f);
-            //select.transform.parent = player.transform;
+            //skin choose
+            skinselect = skindata.transform.GetChild(0).gameObject;
+            ChangingAppearance sksc = skindata.GetComponent<ChangingAppearance>();
+            skselectImg = skinselect.transform.GetComponent<SpriteRenderer>();
+            GameObject player = GameObject.Find("player");
+            SpriteRenderer playerimg = player.transform.GetComponent<SpriteRenderer>();
+            playerimg.sprite = sksc.options[sksc.index];
+            //skselectImg.sprite = sksc.options[sksc.index];
+            skinselect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(skinobj!= null)
+        if(savedata != null)
         {
-            select.transform.position = new Vector2(player.transform.position.x + 0.5f, player.transform.position.y + 0.1f);
+            weaponselect.transform.position = new Vector2(player.transform.position.x + 0.5f, player.transform.position.y + 0.1f);
+            skinselect.transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
         }
     }
 }
