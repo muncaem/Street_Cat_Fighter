@@ -71827,6 +71827,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -1.5633903
       objectReference: {fileID: 0}
+    - target: {fileID: 5846579974514934345, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
 --- !u!1 &614887319
@@ -72208,6 +72212,10 @@ PrefabInstance:
     - target: {fileID: 4995710541916492066, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
       propertyPath: m_Offset.x
       value: -1.5633903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846579974514934345, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
@@ -76437,6 +76445,10 @@ PrefabInstance:
     - target: {fileID: 4995710541916492066, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
       propertyPath: m_Offset.x
       value: -1.5633903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846579974514934345, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
@@ -104687,6 +104699,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -1.5633903
       objectReference: {fileID: 0}
+    - target: {fileID: 5846579974514934345, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
 --- !u!1 &1910075863
@@ -104994,6 +105010,10 @@ PrefabInstance:
     - target: {fileID: 4995710541916492066, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
       propertyPath: m_Offset.x
       value: -1.5633903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5846579974514934345, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80cb180bc1a0d2d44986a1b42de75d49, type: 3}
