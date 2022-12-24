@@ -81,6 +81,10 @@ public class ItemController : MonoBehaviour
         print(clickObj_name);
         clickObj.GetComponent<Image>().sprite = null;
         clickObj.SetActive(false);
+
+        Player player = GameObject.Find("Player").GetComponent<Player>();
+        player.invennum--;
+        player.invenCount--;
     }
 
     //이미지 스프라이트 이름 다 변경.

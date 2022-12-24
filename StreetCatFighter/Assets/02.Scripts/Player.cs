@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public GameObject cantbuywin, canbuy, nomorewin;
 
     List<Image> invenbaseImg = new List<Image>();
-    int invenCount, invennum;
+    public int invenCount, invennum;
     bool pause = false;
     public GameObject lef; //Àü´ÜÁö
 
