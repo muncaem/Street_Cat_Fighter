@@ -214,6 +214,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 720074062394329469, guid: 8868a80267f252a46b8c660de2b20d50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2020372787}
+    - target: {fileID: 720074062394329469, guid: 8868a80267f252a46b8c660de2b20d50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: normalTime
+      objectReference: {fileID: 0}
+    - target: {fileID: 720074062394329469, guid: 8868a80267f252a46b8c660de2b20d50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4444312981152558072, guid: 8868a80267f252a46b8c660de2b20d50, type: 3}
       propertyPath: m_Name
       value: "\uB098\uADF8\uB124\uC0C1\uC810\uCE94\uBC84\uC2A4"
